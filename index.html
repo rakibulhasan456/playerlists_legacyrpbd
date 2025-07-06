@@ -8,10 +8,34 @@
 </head>
 <body>
   <div class="container">
-    <h1>FiveM Player List (Server ID: v9yy3e)</h1>
+    <div class="header-title">
+  <img src="image/legacyrpbd_logo.png" alt="Server Logo" class="server-logo" />
+  <span class="server-title">Legacy Roleplay Bangladesh Player Lists</span>
+</div>
+
+
+    <div class="top-controls">
+  <span id="playerCount">Players: 0</span>
+  <button id="refreshButton" class="btn elegant-btn">
+  <svg fill="#FFFFFF" width="18px" height="18px" viewBox="-1.5 -2.5 24 24" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin" class="jam jam-refresh"><path d='M17.83 4.194l.42-1.377a1 1 0 1 1 1.913.585l-1.17 3.825a1 1 0 0 1-1.248.664l-3.825-1.17a1 1 0 1 1 .585-1.912l1.672.511A7.381 7.381 0 0 0 3.185 6.584l-.26.633a1 1 0 1 1-1.85-.758l.26-.633A9.381 9.381 0 0 1 17.83 4.194zM2.308 14.807l-.327 1.311a1 1 0 1 1-1.94-.484l.967-3.88a1 1 0 0 1 1.265-.716l3.828.954a1 1 0 0 1-.484 1.941l-1.786-.445a7.384 7.384 0 0 0 13.216-1.792 1 1 0 1 1 1.906.608 9.381 9.381 0 0 1-5.38 5.831 9.386 9.386 0 0 1-11.265-3.328z' /></svg>
+  Refresh (<span id="timer">30</span>s)
+</button>
+
+
+  <div class="theme-toggle-container">
+    <label class="switch">
+      <input type="checkbox" id="toggleTheme">
+      <span class="slider round"></span>
+    </label>
+    <span id="themeLabel">Dark Mode</span>
+  </div>
+</div>
+
+
     <div class="tabs">
       <button id="allTab" class="active">All Players</button>
       <button id="favoritesTab">Favorites</button>
+      <button id="statsTab">Statistics</button>
     </div>
 
     <input type="text" id="searchInput" placeholder="Search player by name..."/>
@@ -31,9 +55,35 @@
       </tbody>
     </table>
 
+    <div id="chartContainer" style="display:none; width: 100%; max-width: 900px; margin: auto;">
+      <canvas id="pingChart"></canvas>
+    </div>
+
     <p id="lastUpdated">Last Updated: -</p>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="js/scripts.js"></script>
+
+  <footer>
+  <div class="footer-content">
+    <div class="footer-left">
+      <p>© Copyright by Legacy Roleplay Bangladesh & Designed by Ryuujin Onizuka</p>
+    </div>
+    <div class="footer-right">
+      <a href="https://discord.gg/8qzgmPmpBs" target="_blank" class="footer-link">
+        <span>Legacy Roleplay Bangladesh</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 245 240">
+          <path fill="currentColor"
+            d="M104.4 104.2c-5.7 0-10.2 5-10.2 11.1 0 6.1 4.6 11.1 10.2 11.1s10.3-5 10.2-11.1c-.1-6.1-4.5-11.1-10.2-11.1Zm36.1 0c-5.7 0-10.2 5-10.2 11.1 0 6.1 4.6 11.1 10.2 11.1s10.3-5 10.2-11.1c-.1-6.1-4.5-11.1-10.2-11.1Z" />
+          <path fill="currentColor"
+            d="M189.5 20H55.5C36.5 20 21 35.2 21 54.4v131.1c0 19.2 15.5 34.5 34.5 34.5h99.3l-4.7-16.4 11.3 10.5 10.7 9.8 19 16.7V54.4c0-19.2-15.5-34.4-34.6-34.4Zm-42.4 135s-4-4.8-7.3-9c14.6-4.1 20.1-13.1 20.1-13.1-4.6 3-9 5.1-12.9 6.5-5.6 2.3-11 3.8-16.2 4.7-10.7 2-20.4 1.5-28.8-.1-6.3-1.2-11.8-2.9-16.3-4.7-2.6-1-5.4-2.3-8.2-4-0.3-0.2-0.6-0.3-0.9-0.5-0.2-0.1-0.3-0.2-0.4-0.3-1.8-1-2.8-1.7-2.8-1.7s5.3 8.8 19.3 13c-3.3 4.2-7.4 9.1-7.4 9.1-24.4-0.8-33.6-16.8-33.6-16.8 0-35.6 15.9-64.4 15.9-64.4 15.9-11.8 31-11.4 31-11.4l1.1 1.3c-19.9 5.7-29 14.3-29 14.3s2.4-1.3 6.5-3c11.8-5.2 21.1-6.6 25-6.9 0.6-0.1 1.2-0.2 1.8-0.2 6.5-0.9 13.8-1.1 21.4-0.2 10.1 1.2 20.9 4.3 32 10.6 0 0-8.7-8.3-27.5-14l1.5-1.7s15.1-0.3 31 11.4c0 0 15.9 28.8 15.9 64.4 0 0-9.5 16-33.8 16.8Z" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+
 </body>
 </html>

@@ -1,3 +1,28 @@
+.header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.server-logo {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.server-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text);
+  display: inline-block;
+}
+
+
 body {
   font-family: Arial, sans-serif;
   background-color: #121212;
@@ -13,9 +38,56 @@ body {
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
+/* Top controls container */
+.top-controls {
+  display: flex;
+  align-items: center;
+  gap: 100px; /* space between items */
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+/* Player count style - more prominent */
+#playerCount {
+  font-weight: 700;
+  font-size: 18px;
+  color: #08ff1c; /* bright blue */
+  text-shadow: 0 0 5px rgba(37, 117, 252, 0.7);
+  user-select: none;
+}
+
+/* Premium styled refresh button */
+#refreshButton {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  box-shadow: 0 8px 15px rgba(97, 57, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#refreshButton:hover {
+  box-shadow: 0 12px 24px rgba(97, 57, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+#refreshButton:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 12px rgba(97, 57, 255, 0.3);
+}
+
+/* Tabs */
 .tabs {
   display: flex;
   justify-content: center;
@@ -30,14 +102,17 @@ h1 {
   color: #fff;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.tabs .active {
-  background-color: #00b894;
+.tabs button.active {
+  background-color: #00b894 !important;
+  color: white;
 }
 
+/* Input search */
 input[type="text"] {
-  width: 100%;
+  width: 98%;
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 5px;
@@ -45,6 +120,7 @@ input[type="text"] {
   font-size: 16px;
 }
 
+/* Table */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -57,6 +133,7 @@ th, td {
   border-bottom: 1px solid #333;
 }
 
+/* Favorite button */
 .favorite-btn {
   background-color: #00b894;
   color: white;
@@ -64,8 +141,193 @@ th, td {
   border-radius: 3px;
   cursor: pointer;
   border: none;
+  transition: background-color 0.3s ease;
 }
 
 .favorite-btn.remove {
   background-color: #d63031;
 }
+
+/* Theme toggle container */
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+}
+
+/* Toggle switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 26px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.switch input:checked + .slider {
+  background: linear-gradient(135deg, #00b894, #019875);
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(22px);
+}
+
+.slider.round {
+  border-radius: 26px;
+}
+
+/* Hide player table and search on statistics tab */
+.hide {
+  display: none !important;
+}
+
+
+/* Light mode styles */
+body.light {
+  background-color: #f0f0f0;
+  color: #222222;
+}
+
+body.light table {
+  background-color: #ffffff;
+  color: #222222;
+}
+
+body.light th, 
+body.light td {
+  border-bottom: 1px solid #ccc;
+}
+
+body.light input[type="text"] {
+  background-color: #fff;
+  color: #222;
+  border: 1px solid #ccc;
+}
+
+body.light .tabs button {
+  background-color: #ddd;
+  color: #222;
+}
+
+body.light .tabs button.active {
+  background-color: #00b894;
+  color: white;
+}
+
+body.light .favorite-btn {
+  background-color: #00b894;
+  color: white;
+}
+
+body.light .favorite-btn.remove {
+  background-color: #d63031;
+}
+
+body.light #playerCount {
+  color: #019875;
+  text-shadow: none;
+}
+
+body.light #refreshButton {
+  box-shadow: 0 8px 15px rgba(1, 152, 117, 0.4);
+  background: linear-gradient(135deg, #00b894, #019875);
+  color: white;
+}
+
+body.light #refreshButton:hover {
+  box-shadow: 0 12px 24px rgba(1, 152, 117, 0.6);
+}
+
+body.light #refreshButton:active {
+  box-shadow: 0 6px 12px rgba(1, 152, 117, 0.3);
+}
+
+body.light .theme-toggle-container span#themeLabel {
+  color: #222;
+}
+
+/* Footer */
+
+footer {
+  background-color: #111;
+  color: #fff;
+  padding: 20px 0;
+  border-top: 1px solid #333;
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.footer-left p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #00b894;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #00e6a2;
+}
+
+.footer-link svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Responsive styles */
