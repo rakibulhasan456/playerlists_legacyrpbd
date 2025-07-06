@@ -1,4 +1,5 @@
-const API_URL = "http://139.162.4.173:30120/players.json";
+//const API_URL = "http://139.162.4.173:30120/players.json";
+const API_URL = "https://api.allorigins.win/raw?url=http://139.162.4.173:30120/players.json";
 const playerBody = document.getElementById("playerBody");
 const searchInput = document.getElementById("searchInput");
 const lastUpdated = document.getElementById("lastUpdated");
