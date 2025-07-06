@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FiveM Server Player List</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>FiveM Player List (Server ID: v9yy3e)</h1>
+    <div class="tabs">
+      <button id="allTab" class="active">All Players</button>
+      <button id="favoritesTab">Favorites</button>
+    </div>
+
+    <input type="text" id="searchInput" placeholder="Search player by name..."/>
+
+    <table id="playerTable">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Ping</th>
+          <th>Favorite</th>
+        </tr>
+      </thead>
+      <tbody id="playerBody">
+        <!-- Data will load here -->
+      </tbody>
+    </table>
+
+    <p id="lastUpdated">Last Updated: -</p>
+  </div>
+
+  <script src="js/scripts.js"></script>
+</body>
+</html>
